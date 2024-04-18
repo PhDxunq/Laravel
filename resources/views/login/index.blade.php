@@ -21,24 +21,14 @@
             <div class="col-md-6 offset-md-3">
                 <div class="card">
                     <div class="card-header text-center">
-                        <h3>Register</h3>
+                        <h3>Login</h3>
                     </div>
                     <div class="card-body">
-                        <form method="POST" action="{{ route('register.store') }}">
+                        <form method="POST" action="{{ route('login.doLogin') }}">
                             @csrf
-                            <div class="form-group">
-                                <label for="inputEmail">Email address</label>
-                                <input type="email" class="form-control" id="inputEmail"  placeholder="Enter email" name="email" value="">
-                            </div>
-                            <br>
                             <div class="form-group">
                                 <label for="inputName">User Name</label>
                                 <input type="text" class="form-control" id="inputName" placeholder="User Name" name="username">
-                            </div>
-                            <br>
-                            <div class="form-group">
-                                <label for="name">Name</label>
-                                <input type="text" class="form-control" id="name" placeholder="Name" name="name">
                             </div>
                             <br>
                             <div class="form-group">
@@ -47,7 +37,6 @@
                             </div>
                             <br>
                             <button type="submit" class="btn btn-primary">Submit</button>
-                            <button type="reset" class="btn btn-secondary">Reset</button>
                             @if ($errors->any())
                                 <div class="alert alert-danger">
                                     <ul>

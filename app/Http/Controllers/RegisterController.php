@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\RegisterRequest;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class RegisterController extends Controller
@@ -16,7 +17,9 @@ class RegisterController extends Controller
         //     'email' =>'required|email',
         //     'password' => 'required|min:4',
         // ]);
-         echo "Successfully registered";
+        $data = $request->all();
+        User::create($data);
+        return redirect()->route('register.index')->with('Success','Register Success');
     }
     
 }
