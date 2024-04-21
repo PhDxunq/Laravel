@@ -5,6 +5,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\AdminController;
+use App\Http\Middleware\AdminMiddleWare;
+use App\Http\Controllers\ProductController;
+use App\Models\Product;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -31,6 +35,8 @@ Route::post('login', [AuthController::class,'store'])->name('login.doLogin');
 
 Route::middleware(['auth','admin'])->group(function (){
     Route::get('admin',[AdminController::class,"index"])->name('admin.index');
+    Route::get('admin/product/create',[ProductController::class,'create'])->name('admin.create');
+    Route::post('admin/product/create', [ProductController::class, 'store'])->name('admin.product.store');
 }
 );
 

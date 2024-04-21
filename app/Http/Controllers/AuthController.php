@@ -15,7 +15,7 @@ class AuthController extends Controller
         $data = $request->all();
         if(auth() -> attempt(['username' => $data['username'],'password'=> $data['password']])){
             $user = auth() -> user();
-            if($user->type === 'admin'){
+            if($user->type == 'admin'){
                 return redirect()->route('admin.index');
             }
             return redirect()->route('homepage.index');
